@@ -41,7 +41,6 @@ pipeline {
 	stage('Kubernetes Deployment of Application') {
 	   steps {
 	      withKubeConfig([credentialsId: 'kubelogin']) {
-		  sh ('kubectl delete all --all -n devsecops')
 		  sh ('kubectl apply -f flask.yaml --namespace devsecops')
 		}
 	      }
