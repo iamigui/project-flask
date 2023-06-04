@@ -42,7 +42,7 @@ pipeline {
 	   steps {
 	      withKubeConfig([credentialsId: 'kubelogin']) {
 		  sh ('kubectl delete all --all -n devsecops')
-		  sh ('kubectl apply -f fast-api.yaml --namespace devsecops')
+		  sh ('kubectl apply -f flask.yaml --namespace devsecops')
 		}
 	      }
    	}
