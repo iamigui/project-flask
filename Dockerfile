@@ -10,6 +10,6 @@ COPY ./app.py /code/app.py
 
 COPY ./templates /code/templates
 
-ENV BACKEND_URL=http://ac676d21a6d784b099fb4100b1c7fa37-1018539001.us-east-1.elb.amazonaws.com/:8000
+ENV BACKEND_URL=http://ad23af81799c14951a292c5560efa888-1057439527.us-east-1.elb.amazonaws.com:8000/
 
 CMD ["flask", "run", "--host=0.0.0.0"]
