@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: weboduroxd/frontend:v7
+        image: 659026651741.dkr.ecr.us-east-1.amazonaws.com/flask:latest
         ports:
         - containerPort: 5000
 
