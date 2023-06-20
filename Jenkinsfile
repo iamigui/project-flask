@@ -18,22 +18,6 @@ pipeline {
  			}
  		}
  	}
-	 stage('Eliminar imagen de Docker') {
-		    steps {
-			script {
-			    def dockerImage = 'flask:latest' // Reemplaza con el nombre y etiqueta de tu imagen de Docker
-
-			    // Inicia sesión en el registro de Docker si es necesario
-			    // sh 'docker login -u usuario -p contraseña registry_url'
-
-			    // Detén y elimina cualquier contenedor en ejecución basado en la imagen
-			    sh "docker ps -a --filter ancestor=${dockerImage} --format \"{{.ID}}\" | xargs -r docker rm -f"
-
-			    // Elimina la imagen de Docker
-			    sh "docker rmi ${dockerImage}"
-			}
-		    }
-		}
  	// Building Docker images
 	stage('Building image') {
  		steps{
