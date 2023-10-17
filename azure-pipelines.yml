@@ -18,7 +18,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      name: CLuster-Host
+      name: Cluster-Host
     steps:
     - task: Docker@2
       displayName: Build an image
@@ -27,3 +27,10 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'sonarcloud'
+        organization: 'azuredevops-org'
+        scannerMode: 'MSBuild'
+        projectKey: 'AgileProject'
+        projectName: 'AgileProject'
