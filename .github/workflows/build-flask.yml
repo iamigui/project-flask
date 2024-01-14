@@ -42,7 +42,7 @@ jobs:
         run: docker build . --file Dockerfile --tag ${{ secrets.IMAGE }}
 
       - name: Tag Docker Image
-        run: docker tag $NAME:latest ${{ secrets.REPO }}/${{ secrets.IMAGE }}:$VERSION
+        run: docker tag $NAME:$VERSION ${{ secrets.REPO }}/${{ secrets.IMAGE }}:$VERSION
 
       - name: AWS Config
         run: |
