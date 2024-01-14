@@ -51,7 +51,7 @@ jobs:
           aws configure set region ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Get ECR Pass
-        run: aws ecr get-login-password --region ${{ secrets.AWS_DEFAULT_REGION }} | docker login --username AWS --password-stdin $REPO
+        run: aws ecr get-login-password --region ${{ secrets.AWS_DEFAULT_REGION }} | docker login --username AWS --password-stdin ${{ secrets.REPO }}
 
       - name: Push
         run: docker push ${{ secrets.REPO }}/${{ secrets.IMAGE }}:$VERSION
